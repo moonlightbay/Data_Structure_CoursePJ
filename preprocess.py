@@ -99,13 +99,39 @@ def preprocess_topology_zoo(input_dir, output_dir):
     # 获取所有GML文件
     gml_files = list(Path(input_dir).glob("*.gml"))
     
+    # 创建字典，按Network属性分组GML文件
+    network_files = {}
+    
+    # 首先读取所有文件的Network属性
+    for gml_file in gml_files:
+        try:
+            # 读取文件获取Network属性
+            with open(gml_file, 'r', encoding='utf-8') as file:
+                content = file.read()
+                # 尝试提取Network属性
+                network_match = re.search(r'Network\s+"([^"]+)"', content)
+                if network_match:
+                    network_name = network_match.group(1)
+                else:
+                    # 如果找不到Network属性，使用文件名
+                    network_name = gml_file.stem
+                
+                # 如果网络名已存在，按文件名字母顺序比较
+                if network_name in network_files:
+                    existing_file = network_files[network_name]
+                    if gml_file.name < existing_file.name:
+                        network_files[network_name] = gml_file
+                else:
+                    network_files[network_name] = gml_file
+        except Exception as e:
+            print(f"Error reading network name from {gml_file}: {e}")
+    
     # 创建网络列表文件
     network_list_file = os.path.join(output_dir, "networks.txt")
     with open(network_list_file, 'w', encoding='utf-8') as network_list:
-        # 写入网络名称列表
-        for gml_file in gml_files:
-            network_name = gml_file.stem
-            print(f"处理网络: {network_name}")
+        # 处理每个唯一的网络
+        for network_name, gml_file in sorted(network_files.items()):
+            print(f"处理网络: {network_name} (文件: {gml_file.name})")
             
             G = process_gml_file(gml_file)
             if G is None:

@@ -1,193 +1,191 @@
-Aarnet
+AARNET
+ACOnet
+AGIS
+AI3
+AMRES
+ANS
+ARN
+ARNES
+ARPANET
+ASNET-AM
+ATMnet
+ATT North America
 Abilene
-Abvt
-Aconet
-Agis
-Ai3
+AboveNet
 Airtel
-Amres
-Ans
-Arn
-Arnes
-Arpanet19728
-AsnetAm
-Atmnet
-AttMpls
 Azrena
-Bandcon
-Basnet
-Bbnplanet
-Bellcanada
-Bellsouth
-Belnet2010
-BeyondTheNetwork
-Bics
-Biznet
-Bren
-BsonetEurope
-BtAsiaPac
-BtEurope
-BtLatinAmerica
-BtNorthAmerica
+BASNET
+BBNplanet
+BELNET
+BICS
+BREN
+BSONetworkSolutions
+BT Asia-Pacific
+BT Europe
+BT Latin America
+BT North America
+BTN 
+Bandcon 
+Bell Canada
+Bell South 
+Bestel 
+BizNetworks
+CESNET
+CRL
+CUDI
+CWIX
 Canerie
 Carnet
 Cernet
-Cesnet201006
-Chinanet
+China Telecom 
 Claranet
-Cogentco
-Colt
-Columbus
+Cogent 
+Colt Telecom 
+Columbus Networks
 Compuserve
-CrlNetworkServices
-Cudi
-Cwix
 Cynet
-Darkstrand
-Dataxchange
-Deltacom
-DeutscheTelekom
-Dfn
-DialtelecomCz
-Digex
-Easynet
-Eenet
-EliBackbone
+DFN
+DIGEX
+Darkstrand 
+DataXchange
+Deutsche Telekom 
+Dial Telecom 
+EEnet
+ERNET
+ESnet
+EasyNet 
+Electric Lightwave
 Epoch
-Ernet
-Esnet
-Eunetworks
-Evolink
-Fatman
-Fccn
-Forthnet
-Funet
+EvoLink
+FCCN
+FORTHNET
+FUNET
+FatMan
+GARR
+GEANT
+GRENA
+GRnet
+GTS CE
+GTS Czech Republic
+GTS Hungary
+GTS Poland
+GTS Romania
+GTS Slovakia
 Gambia
-Garr201201
-Gblnet
-Geant2012
-Getnet
-Globalcenter
-Globenet
-Goodnet
-Grena
-Gridnet
-Grnet
-GtsCe
-GtsCzechRepublic
-GtsHungary
-GtsPoland
-GtsRomania
-GtsSlovakia
-Harnet
+GetNet
+GlobalCenter
+GlobalNetRu
+GlobeNet
+GoodNet
+GridNet
+HARNET
 Heanet
-HiberniaCanada
-HiberniaGlobal
-HiberniaIreland
-HiberniaNireland
-HiberniaUk
-HiberniaUs
+Hibernia Atlantic 
+Hibernia Atlantic (Canada)
+Hibernia Atlantic (Ireland)
+Hibernia Atlantic (N. Ireland)
+Hibernia Atlantic (UK)
+Hibernia Atlantic (US)
 Highwinds
-HostwayInternational
-HurricaneElectric
-Ibm
-Iij
-Iinet
-Ilan
-Integra
+Hostway International
+Hurricane Electric 
+IBM
+IIJ
+IINET 
+ILAN
+INS IXC Services 
+ION
+IRIS Networks 
+ITC Deltacom 
+Integra Telecom 
 Intellifiber
-Internetmci
+InternetMCI
 Internode
-Interoute
-Intranetwork
-Ion
-IowaStatewideFiberMap
-Iris
-Istar
+Interroute 
 Itnet
-Janetbackbone
-JanetExternal
-Janetlense
-Jgn2Plus
-Karen
-Kdl
-KentmanJan2011
-Kreonet
-LambdaNet
-Latnet
+JGN2plus-Japan
+Janet Backbone
+Janet External
+Janet Lense
+KAREN
+KREONET
+KentMan
+Kentucky Datalink 
+LATNET
+LITNET
+Lambdanet 
 Layer42
-Litnet
-Marnet
-Marwan
-Missouri
-Mren
+MARNET
+MARWAN
+MREN
+Missouri Network Alliance 
 Myren
-Napnet
-Navigata
+NIIF
+NORDU
+NSF
+NSFCNET
+NTELOS 
+NTT
+NapNet
+Navigata 
 Netrail
-NetworkUsa
-Nextgen
-Niif
-Noel
-Nordu2010
-Nsfcnet
-Nsfnet
-Ntelos
-Ntt
-Oteglobe
+Network USA 
+Nextgen 
+Noel Communications 
+OPTOSUNET
+OTEGlobe 
 Oxford
-Pacificwave
-Packetexchange
-Padi
-Palmetto
-Peer1
-Pern
-PionierL1
-PionierL3
-Psinet
-Quest
-RedBestel
-Rediris
+PADI2
+PERN
+PIONIER
+Pacific-Wave
+Packet Exchange
+PalmettoNet 
+PsiNet
+Quest 
+RHnet
+RNP
+RedIris
 Renam
-Renater2010
+Renater
 Restena
 Reuna
-Rhnet
-Rnp
-RoedunetFibre
+RoEduNet
+SANET
+SURFNET
+SWITCH
 Sago
-Sanet
 Sanren
 Savvis
-Shentel
+Shentel 
 Sinet
 Singaren
-Spiralight
+SpiraLight
 Sprint
-Sunet
-Surfnet
-Switch
-SwitchL3
-Syringa
-TataNld
-Telcove
-Telecomserbia
+Syringa Networks
+T-lex
+TATA
+TW Telecom
+TWAREN
+Tecove (level3)
+TelecomSerbia
 Tinet
-TLex
-Tw
-Twaren
-Ulaknet
-UniC
-Uninett2011
-Uran
-UsCarrier
-UsSignal
-Uunet
-Vinaren
-VisionNet
-VtlWavenet2011
-WideJpn
+ULAKNET
+URAN
+US Carrier
+US Signal
+UUNET
+Uni-C
+Uninett
+ValleyNet
+Viatel
+VinaREN
+Vision Net
+WIDE
 Xeex
 Xspedius
-York
+YorkDataServices
 Zamren
+euNetworks 
+iSTAR
+peer1
