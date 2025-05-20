@@ -1,0 +1,309 @@
+<!DOCTYPE html><html><head>
+      <title>Internet Topology Zoo 动态网络路由问题</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\Xenon\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.18\crossnote\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<h1 id="internet-topology-zoo-动态网络路由问题">Internet Topology Zoo 动态网络路由问题 </h1>
+<h2 id="题目背景">题目背景 </h2>
+<p>随着互联网用户数量的激增和数据流量的不断扩展，运营商和企业级网络正面临着前所未有的挑战。为了实现高可靠性和低延迟的数据传输，网络运营商通常构建复杂的骨干网络和数据中心集群，其核心组成部分为各类路由器、交换机及边缘节点，这些网络设备通过互联形成一个庞大的图结构。</p>
+<p>在实际运行过程中，网络环境会受到各种因素的影响，例如：</p>
+<ul>
+<li>
+<p><strong>节点故障与启停</strong>：网络中的某些节点（如核心路由器或数据中心的交换机）可能由于硬件老化、软件异常、计划内维护或突发故障而被禁用或失效，出现动态的关停或启动现象，影响自身与附近节点的链路通信。</p>
+</li>
+<li>
+<p><strong>动态负载波动</strong>：网络中的链路负载并非静态。在高峰时段或出现突发流量时，某些链路的负载会急剧上升，导致延迟增加或带宽受限；而在低谷时段，负载降低则可能使得某些链路延迟或消耗减小，从而为路径优化提供机会。</p>
+</li>
+</ul>
+<p>传统的路由协议（例如 OSPF）在遇到节点故障或负载突变时，往往需要全局重新计算最短路径树，响应较慢且资源消耗大。为此，本项目要求设计一个动态路由系统，在动态波动的网络环境下，能够迅速计算受影响子网的最短路由，从而提升整体网络的鲁棒性和传输性能。</p>
+<p>为了模拟真实的网络拓扑，本项目使用 <strong>Internet Topology Zoo 数据集</strong>（<a href="https://github.com/afourmy/3D-internet-zoo">https://github.com/afourmy/3D-internet-zoo</a>）。Internet Topology Zoo 是一个持续进行的项目，旨在收集全球各地真实的网络拓扑数据。这些拓扑数据由各大运营商提供或从公开网络图中人工整理得来，涵盖了互联网上各种类型的网络（例如企业网络、学术网络、运营商骨干网等）。Internet Topology Zoo 更详细的介绍请参阅 <a href="https://scispace.com/pdf/the-internet-topology-zoo-7l35zrvwl3.pdf">The Internet Topology Zoo.pdf</a>。</p>
+<p>下图是美国地区的 Internet Topolgy 在 Google Earth 上的拓扑可视化展示。<br>
+<img src="image.png" alt="Internet Topology Zoo 示例网络拓扑"></p>
+<h4 id="数据集介绍与gml格式">数据集介绍与GML格式 </h4>
+<p>为了统一数据集格式，本次采用 <a href="https://github.com/afourmy/3D-internet-zoo">3D-internet-zoo</a> 项目提供的 GML 格式 Internet Topolgy Zoo 数据集。</p>
+<p>GML（Graph Modeling Language）是一种文本格式，可用于描述图（由节点和边构成）的结构及相关属性。本次 Topology Zoo 数据集中每个 GML 文件代表一个路由网络，构成一个<strong>带权无向图</strong>，以 <a href="https://github.com/afourmy/3D-internet-zoo/blob/master/dataset/UsSignal.gml">UsSignal.gml</a> 为例，该文件内容包括：</p>
+<ul>
+<li>
+<p>全局属性：文件头部定义诸如网络名称、采集日期、地理位置、数据来源等信息。</p>
+<pre data-role="codeBlock" data-info="Gml" class="language-gml Gml"><code>graph <span class="token punctuation">[</span>
+    DateObtained <span class="token string">"22/10/10"</span>
+    GeoLocation <span class="token string">"USA"</span>
+    GeoExtent <span class="token string">"Country"</span>
+    Network <span class="token string">"US Signal"</span>
+    Provenance <span class="token string">"Primary"</span>
+    Note <span class="token string">"Fiber provider"</span>
+    Source <span class="token string">"http://www.ussignalcom.com/network"</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">]</span>
+</code></pre><p>对于网络的全局属性，我们只关注 <code>Network</code> 项（UsSignal.gml 的 <code>Network</code> 项的值为 <code>Us Signal</code>），作为该网络的唯一名称。</p>
+</li>
+<li>
+<p>节点定义：使用 <code>node [ ... ]</code> 块来描述网络节点，每个节点通常包含唯一的 <code>id</code>、<code>label</code>（名称）、<code>Longitude</code> 经度、<code>Latitude</code> 维度等其它属性。例如：</p>
+<pre data-role="codeBlock" data-info="Gml" class="language-gml Gml"><code>node <span class="token punctuation">[</span>
+    <span class="token variable">id</span> <span class="token number">0</span>
+    label <span class="token string">"Indianapolis"</span>
+    Country <span class="token string">"United States"</span>
+    Longitude <span class="token operator">-</span><span class="token number">86.15804</span>
+    Latitude <span class="token number">39.76838</span>
+<span class="token punctuation">]</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+node <span class="token punctuation">[</span>
+    <span class="token variable">id</span> <span class="token number">11</span>
+    label <span class="token string">"Lafayette"</span>
+    Country <span class="token string">"United States"</span>
+    Longitude <span class="token operator">-</span><span class="token number">86.87529</span>
+    Internal <span class="token number">1</span>
+    Latitude <span class="token number">40.4167</span>
+<span class="token punctuation">]</span>
+</code></pre><p>对于节点属性，我们只关注 <code>id</code> <code>Longitude</code> <code>Latitude</code> 3个项：</p>
+<ul>
+<li><code>id</code>：节点唯一标识</li>
+<li><code>Longitude</code>，<code>Latitude</code>：节点地理位置的经度、纬度，用于计算相连节点间的球面距离、并用于计算链路时延</li>
+</ul>
+</li>
+<li>
+<p>链路定义：使用 <code>edge [ ... ]</code> 块来描述 <code>source</code> 节点与 <code>target</code> 节点间的一条无向链路。例如：</p>
+<pre data-role="codeBlock" data-info="Gml" class="language-gml Gml"><code>edge <span class="token punctuation">[</span>
+    source <span class="token number">0</span>
+    target <span class="token number">11</span>
+    <span class="token variable">id</span> <span class="token string">"e18"</span>  <span class="token comment">// 链路唯一标识</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>  <span class="token comment">// 其它标签属性</span>
+<span class="token punctuation">]</span>  <span class="token comment">// 代表 节点 id=0 &lt;-&gt; 节点 id=11 的一条无向链路</span>
+</code></pre><p>对于链路属性，我们只关注 <code>source</code> 和 <code>target</code> 2个项，分别表示链路的起始节点和终止节点。由于链路的标签属性并不统一，故不在本项目考虑范围内。<br>
+注：<code>source A, target B</code> 与 <code>source B, target A</code> 代表同一条无向链路。</p>
+</li>
+</ul>
+<p>由于 GML 格式解析较为繁琐，推荐使用 Python 解析 GML 并转换为 C/C++ 易于处理的格式。利用 Python 内置的 NetworkX 库可以方便地读取 GML 文件。NetworkX 内部提供了 <code>read_gml()</code> 函数来解析 GML 文件，解析后再将图数据存储成如 CSV、文本边列表等格式，便于 C/C++ 程序加载。</p>
+<div style="border: 1px solid black; padding: 10px;">
+<p><strong>重要！！！ 考虑到原始 Topology Zoo 数据集未进行过数据清洗，在解析 GML 文件前/时需要考虑数据清洗：</strong></p>
+<ul>
+<li>
+<p>节点 node 缺失经纬度信息（<code>Longitude</code> 和 <code>Latitude</code>）：若一条链路的两端节点，至少有一个节点缺失经纬度信息，则默认该链路的<strong>时延为 5 毫秒</strong>。</p>
+</li>
+<li>
+<p>某个 GML 文件存在重复的链路（<code>source</code> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">→</span></span></span></span> <code>target</code> 相同）：若直接用 <code>nx.read_gml()</code> 读取该文件，会报错：</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>networkx.exception.NetworkXError: edge xxx duplicated
+</code></pre><p>建议手动在 GML 文件的 <code>graph</code> 块中添加属性 <code>multigraph 1</code>，表示该图允许多重边，并在使用 <code>nx.read_gml()</code> 读取后，将多余的边删除，例如：</p>
+<pre data-role="codeBlock" data-info="Gml" class="language-gml Gml"><code>graph <span class="token punctuation">[</span>
+    multigraph <span class="token number">1</span>  <span class="token comment">// 允许重复边，确保不会报错</span>
+    DateObtained <span class="token string">"22/10/10"</span>
+    GeoLocation <span class="token string">"USA"</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">]</span>
+</code></pre><p>也可以写一个自动脚本来为每个 GML 文件添加 <code>multigraph 1</code> 属性：</p>
+<pre data-role="codeBlock" data-info="Python" class="language-python Python"><code><span class="token keyword keyword-import">import</span> re
+<span class="token keyword keyword-from">from</span> pathlib <span class="token keyword keyword-import">import</span> Path
+<span class="token keyword keyword-def">def</span> <span class="token function">add_multigraph_attribute</span><span class="token punctuation">(</span>gml_file<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword keyword-with">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span>gml_file<span class="token punctuation">,</span> <span class="token string">'r'</span><span class="token punctuation">)</span> <span class="token keyword keyword-as">as</span> <span class="token builtin">file</span><span class="token punctuation">:</span>
+        content <span class="token operator">=</span> <span class="token builtin">file</span><span class="token punctuation">.</span>readlines<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    
+    <span class="token comment"># 在 graph 块中添加 multigraph 1 属性</span>
+    <span class="token keyword keyword-for">for</span> i<span class="token punctuation">,</span> line <span class="token keyword keyword-in">in</span> <span class="token builtin">enumerate</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword keyword-if">if</span> line<span class="token punctuation">.</span>startswith<span class="token punctuation">(</span><span class="token string">"graph ["</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            content<span class="token punctuation">.</span>insert<span class="token punctuation">(</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">"    multigraph 1\n"</span><span class="token punctuation">)</span>
+            <span class="token keyword keyword-break">break</span>
+    
+    <span class="token comment"># 将修改后的内容写回文件（记得备份原始文件）</span>
+    <span class="token keyword keyword-with">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span>gml_file<span class="token punctuation">,</span> <span class="token string">'w'</span><span class="token punctuation">)</span> <span class="token keyword keyword-as">as</span> <span class="token builtin">file</span><span class="token punctuation">:</span>
+        <span class="token builtin">file</span><span class="token punctuation">.</span>writelines<span class="token punctuation">(</span>content<span class="token punctuation">)</span>
+</code></pre><pre data-role="codeBlock" data-info="Python" class="language-python Python"><code><span class="token comment"># 使用示例</span>
+gml_path <span class="token operator">=</span> Path<span class="token punctuation">(</span><span class="token string">"path/to/dataset"</span><span class="token punctuation">)</span>
+<span class="token keyword keyword-for">for</span> gml_file <span class="token keyword keyword-in">in</span> gml_path<span class="token punctuation">.</span>glob<span class="token punctuation">(</span><span class="token string">"*.gml"</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    add_multigraph_attribute<span class="token punctuation">(</span>gml_file<span class="token punctuation">)</span>
+</code></pre><p>该解决方案参考自 <a href="https://stackoverflow.com/questions/37931040/reading-a-multigraph-in-networkx-from-gml-file">https://stackoverflow.com/questions/37931040/reading-a-multigraph-in-networkx-from-gml-file</a></p>
+</li>
+<li>
+<p>缺失、重复、无效的节点 node <code>label</code>：考虑到节点 <code>label</code> 命名并不规范，本项目不使用 node 的 <code>label</code> 属性，<strong>只使用 node 的 <code>id</code> 属性作为 node 的唯一标识</strong>，故可以忽略 node 的 <code>label</code> 属性。</p>
+</li>
+</ul>
+</div>
+<p>NetworkX 库解析 <code>UsSignal.gml</code> 的 Python 代码举例如下：</p>
+<pre data-role="codeBlock" data-info="Python" class="language-python Python"><code><span class="token keyword keyword-import">import</span> networkx <span class="token keyword keyword-as">as</span> nx
+G <span class="token operator">=</span> nx<span class="token punctuation">.</span>read_gml<span class="token punctuation">(</span><span class="token string">"UsSignal.gml"</span><span class="token punctuation">,</span> label<span class="token operator">=</span><span class="token string">'id'</span><span class="token punctuation">)</span>  <span class="token comment"># 读取 GML 文件</span>
+<span class="token comment"># real_gml 必须指定 label='id'，否则部分 GML 文件会报错</span>
+
+unique_edges <span class="token operator">=</span> <span class="token builtin">set</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  
+edges_to_remove <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token keyword keyword-for">for</span> u<span class="token punctuation">,</span> v <span class="token keyword keyword-in">in</span> G<span class="token punctuation">.</span>edges<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>u<span class="token punctuation">,</span> v<span class="token punctuation">)</span> <span class="token keyword keyword-in">in</span> unique_edges <span class="token keyword keyword-or">or</span> <span class="token punctuation">(</span>v<span class="token punctuation">,</span> u<span class="token punctuation">)</span> <span class="token keyword keyword-in">in</span> unique_edges<span class="token punctuation">:</span>
+        edges_to_remove<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">(</span>u<span class="token punctuation">,</span> v<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword keyword-else">else</span><span class="token punctuation">:</span>
+        unique_edges<span class="token punctuation">.</span>add<span class="token punctuation">(</span><span class="token punctuation">(</span>u<span class="token punctuation">,</span> v<span class="token punctuation">)</span><span class="token punctuation">)</span>
+G<span class="token punctuation">.</span>remove_edges_from<span class="token punctuation">(</span>edges_to_remove<span class="token punctuation">)</span>  <span class="token comment"># 去除重复边</span>
+</code></pre><pre data-role="codeBlock" data-info="Python" class="language-python Python"><code>city_pos_map <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>  <span class="token comment"># 存储城市经纬度信息</span>
+<span class="token keyword keyword-for">for</span> node <span class="token keyword keyword-in">in</span> G<span class="token punctuation">.</span>nodes<span class="token punctuation">(</span>data<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    node_id <span class="token operator">=</span> node<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+    node_data <span class="token operator">=</span> node<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+    city_pos_map<span class="token punctuation">[</span>node_id<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token string">'lon'</span><span class="token punctuation">:</span> <span class="token builtin">float</span><span class="token punctuation">(</span>node_data<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"Longitude"</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>  <span class="token comment"># 节点经度</span>
+        <span class="token string">'lat'</span><span class="token punctuation">:</span> <span class="token builtin">float</span><span class="token punctuation">(</span>node_data<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"Latitude"</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>  <span class="token comment"># 节点纬度</span>
+    <span class="token punctuation">}</span>
+<span class="token keyword keyword-with">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">"UsSignal_edgelist.txt"</span><span class="token punctuation">,</span> <span class="token string">"w"</span><span class="token punctuation">)</span> <span class="token keyword keyword-as">as</span> f<span class="token punctuation">:</span>
+    <span class="token keyword keyword-for">for</span> u<span class="token punctuation">,</span> v<span class="token punctuation">,</span> data <span class="token keyword keyword-in">in</span> G<span class="token punctuation">.</span>edges<span class="token punctuation">(</span>data<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        weight <span class="token operator">=</span> cal_weight<span class="token punctuation">(</span>city_pos_map<span class="token punctuation">,</span> u<span class="token punctuation">,</span> v<span class="token punctuation">)</span>  <span class="token comment"># 计算权重</span>
+        <span class="token comment"># weight 须注意处理缺失经纬度的情况</span>
+        f<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"</span><span class="token interpolation"><span class="token punctuation">{</span>u<span class="token punctuation">}</span></span><span class="token string"> </span><span class="token interpolation"><span class="token punctuation">{</span>v<span class="token punctuation">}</span></span><span class="token string"> </span><span class="token interpolation"><span class="token punctuation">{</span>weight<span class="token punctuation">}</span></span><span class="token string">\n"</span></span><span class="token punctuation">)</span>  <span class="token comment"># 写入边信息</span>
+</code></pre><p>可以使用 <code>fopen()</code> （C 语言）或 <code>ifstream</code>（C++）打开 <code>UsSignal_edgelist.txt</code> 文件，读取每行数据来构建网络拓扑图。</p>
+<h4 id="链路时延边权重计算">链路时延（边权重）计算 </h4>
+<p>为了简化问题，我们只考虑每条链路的时延属性。时延是指数据包从源节点到达目的节点所需的时间，通常以毫秒（ms）为单位。进一步的，我们简单认为链路的时延正比于链路的长度（即两节点间的球面距离）。</p>
+<p>球面距离是指在地球表面两点之间的最短距离，使用 Haversine 公式来计算。Haversine 公式如下：<br>
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>d</mi><mo>=</mo><mn>2</mn><mi>r</mi><mo>⋅</mo><mi>arcsin</mi><mo>⁡</mo><mrow><mo fence="true">(</mo><msqrt><mrow><msup><mrow><mi>sin</mi><mo>⁡</mo></mrow><mn>2</mn></msup><mo stretchy="false">(</mo><mfrac><mrow><mi mathvariant="normal">Δ</mi><mi>ϕ</mi></mrow><mn>2</mn></mfrac><mo stretchy="false">)</mo><mo>+</mo><mi>cos</mi><mo>⁡</mo><mo stretchy="false">(</mo><msub><mi>ϕ</mi><mn>1</mn></msub><mo stretchy="false">)</mo><mo>⋅</mo><mi>cos</mi><mo>⁡</mo><mo stretchy="false">(</mo><msub><mi>ϕ</mi><mn>2</mn></msub><mo stretchy="false">)</mo><mo>⋅</mo><msup><mrow><mi>sin</mi><mo>⁡</mo></mrow><mn>2</mn></msup><mo stretchy="false">(</mo><mfrac><mrow><mi mathvariant="normal">Δ</mi><mi>λ</mi></mrow><mn>2</mn></mfrac><mo stretchy="false">)</mo></mrow></msqrt><mo fence="true">)</mo></mrow></mrow><annotation encoding="application/x-tex">d=2r \cdot \arcsin \left(\sqrt{\sin^2(\frac{\Delta\phi}{2}) + \cos(\phi_1) \cdot \cos(\phi_2) \cdot \sin^2(\frac{\Delta\lambda}{2})}\right)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">d</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:3em;vertical-align:-1.25em;"></span><span class="mop">arcsin</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size4">(</span></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.6766em;"><span class="svg-align" style="top:-4.4em;"><span class="pstrut" style="height:4.4em;"></span><span class="mord" style="padding-left:1em;"><span class="mop"><span class="mop">sin</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8719em;"><span style="top:-3.1208em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3714em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">Δ</span><span class="mord mathnormal">ϕ</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mop">cos</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">ϕ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mop">cos</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">ϕ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mop"><span class="mop">sin</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8719em;"><span style="top:-3.1208em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3714em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">Δ</span><span class="mord mathnormal">λ</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose">)</span></span></span><span style="top:-3.6366em;"><span class="pstrut" style="height:4.4em;"></span><span class="hide-tail" style="min-width:1.02em;height:2.48em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="2.48em" viewBox="0 0 400000 2592" preserveAspectRatio="xMinYMin slice"><path d="M424,2478
+c-1.3,-0.7,-38.5,-172,-111.5,-514c-73,-342,-109.8,-513.3,-110.5,-514
+c0,-2,-10.7,14.3,-32,49c-4.7,7.3,-9.8,15.7,-15.5,25c-5.7,9.3,-9.8,16,-12.5,20
+s-5,7,-5,7c-4,-3.3,-8.3,-7.7,-13,-13s-13,-13,-13,-13s76,-122,76,-122s77,-121,77,-121
+s209,968,209,968c0,-2,84.7,-361.7,254,-1079c169.3,-717.3,254.7,-1077.7,256,-1081
+l0 -0c4,-6.7,10,-10,18,-10 H400000
+v40H1014.6
+s-87.3,378.7,-272.6,1166c-185.3,787.3,-279.3,1182.3,-282,1185
+c-2,6,-10,9,-24,9
+c-8,0,-12,-0.7,-12,-2z M1001 80
+h400000v40h-400000z"></path></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7634em;"><span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size4">)</span></span></span></span></span></span></span><br>
+其中：</p>
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi></mrow><annotation encoding="application/x-tex">d</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">d</span></span></span></span>：两点间的球面距离</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi></mrow><annotation encoding="application/x-tex">r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span></span></span></span>：地球半径，单位为千米/公里（km），通常取 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>=</mo><mn>6371</mn></mrow><annotation encoding="application/x-tex">r=6371</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">6371</span></span></span></span> km</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ϕ</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">\phi_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal">ϕ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ϕ</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">\phi_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal">ϕ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>：两点的纬度，单位为弧度（rad）</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mi>ϕ</mi></mrow><annotation encoding="application/x-tex">\Delta\phi</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord">Δ</span><span class="mord mathnormal">ϕ</span></span></span></span>：两点纬度之差，单位为弧度（rad）</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mi>λ</mi></mrow><annotation encoding="application/x-tex">\Delta\lambda</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord">Δ</span><span class="mord mathnormal">λ</span></span></span></span>：两点经度之差，单位为弧度（rad）</li>
+</ul>
+<p>下面给出一个用于计算 Haversine 距离的参考 Python 代码：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-import">import</span> math
+<span class="token keyword keyword-def">def</span> <span class="token function">haversine_distance</span><span class="token punctuation">(</span>lat1<span class="token punctuation">,</span> lon1<span class="token punctuation">,</span> lat2<span class="token punctuation">,</span> lon2<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""
+    计算两个经纬度之间的球面距离，单位为公里
+    参数：每个经纬度以度为单位输入
+    """</span>
+    <span class="token comment"># 将角度转换为弧度</span>
+    phi1<span class="token punctuation">,</span> phi2 <span class="token operator">=</span> math<span class="token punctuation">.</span>radians<span class="token punctuation">(</span>lat1<span class="token punctuation">)</span><span class="token punctuation">,</span> math<span class="token punctuation">.</span>radians<span class="token punctuation">(</span>lat2<span class="token punctuation">)</span>
+    delta_phi <span class="token operator">=</span> math<span class="token punctuation">.</span>radians<span class="token punctuation">(</span>lat2 <span class="token operator">-</span> lat1<span class="token punctuation">)</span>
+    delta_lambda <span class="token operator">=</span> math<span class="token punctuation">.</span>radians<span class="token punctuation">(</span>lon2 <span class="token operator">-</span> lon1<span class="token punctuation">)</span>
+    
+    <span class="token comment"># 地球半径（单位：公里）</span>
+    r <span class="token operator">=</span> <span class="token number">6371.0</span>
+    
+    <span class="token comment"># Haversine 公式</span>
+    a <span class="token operator">=</span> math<span class="token punctuation">.</span>sin<span class="token punctuation">(</span>delta_phi <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token operator">**</span><span class="token number">2</span> <span class="token operator">+</span> math<span class="token punctuation">.</span>cos<span class="token punctuation">(</span>phi1<span class="token punctuation">)</span> <span class="token operator">*</span> math<span class="token punctuation">.</span>cos<span class="token punctuation">(</span>phi2<span class="token punctuation">)</span> <span class="token operator">*</span> math<span class="token punctuation">.</span>sin<span class="token punctuation">(</span>delta_lambda <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token operator">**</span><span class="token number">2</span>
+    c <span class="token operator">=</span> <span class="token number">2</span> <span class="token operator">*</span> math<span class="token punctuation">.</span>asin<span class="token punctuation">(</span>math<span class="token punctuation">.</span>sqrt<span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    distance <span class="token operator">=</span> r <span class="token operator">*</span> c
+    <span class="token keyword keyword-return">return</span> distance
+<span class="token comment"># 示例：计算两个城市间的距离, Lat 为纬度，Lon 为经度</span>
+lat1<span class="token punctuation">,</span> lon1 <span class="token operator">=</span> <span class="token number">39.90</span><span class="token punctuation">,</span> <span class="token number">116.40</span>  <span class="token comment"># 北京</span>
+lat2<span class="token punctuation">,</span> lon2 <span class="token operator">=</span> <span class="token number">31.23</span><span class="token punctuation">,</span> <span class="token number">121.47</span>  <span class="token comment"># 上海</span>
+<span class="token keyword keyword-print">print</span><span class="token punctuation">(</span><span class="token string">"距离: {:.2f} km"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>haversine_distance<span class="token punctuation">(</span>lat1<span class="token punctuation">,</span> lon1<span class="token punctuation">,</span> lat2<span class="token punctuation">,</span> lon2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre><p>考虑到光纤中光速大约为 200,000 km/s（理论传播延迟约为每公里 5 微秒），但设备处理、交换和协议开销等操作会增加时延，所以我们简单认为，1000 公里链路的一程时延约为 15 毫秒。故球面距离与时延的换算关系为：<br>
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>t</mi><mo>=</mo><mn>0.015</mn><mo>⋅</mo><mi>d</mi></mrow><annotation encoding="application/x-tex">t = 0.015 \cdot d</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.015</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">d</span></span></span></span></span></p>
+<p>其中：</p>
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">t</span></span></span></span>：链路的时延（单位：毫秒）</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi></mrow><annotation encoding="application/x-tex">d</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">d</span></span></span></span>：链路的球面距离（单位：公里）</li>
+</ul>
+<p><strong>链路的时延 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">t</span></span></span></span> 即为链路边的权重。</strong> 链路时延的最小值为 1 毫秒，最大值为 1000 毫秒，若计算出的时延超出该范围，则将其限制在该范围内。时延须保留两位小数。</p>
+<h2 id="题目要求">题目要求 </h2>
+<p>本项目要求自行预处理 Topology Zoo 数据集，并设计一个动态路由算法程序（使用C/C++，编译后可执行文件名称为<code>Q1.exe</code>），能够在动态波动的网络环境下，迅速、高效地计算最短路由。具体要求如下：</p>
+<ol>
+<li><strong>预处理阶段</strong>（可以使用 Python 等其他语言）：
+<ul>
+<li>预处理 Topology Zoo 数据集，将预处理的缓存文件保存在与 <code>Q1.exe</code> 同一目录下，缓存文件类型随意（可以是单个文件、或单个文件夹内有多个文件）</li>
+</ul>
+</li>
+<li><strong>求解阶段</strong>（只能使用 C/C++ ）：
+<ol>
+<li>给定一个网络的 <code>Network</code> 名称（如 <code>Us Signal</code>），可以从缓存文件中读取该网络的拓扑数据，构建网络拓扑图（带权无向图），其中节点 id 为整数，链路时延（边权）为浮点数（毫秒）。</li>
+<li>给定一个节点 <code>id</code>（整数），将该 <code>id</code> 作为起始节点，并计算并输出该节点到网络中所有其它节点的最短路径时延（单位：毫秒）。</li>
+<li>给定一系列事件：
+<ul>
+<li><strong>单个/多个节点停用事件</strong>：当节点停用后，所有与该节点相连的链路将被断开。格式为：<code>down N &lt;node_id1&gt; &lt;node_id2&gt; ... &lt;node_idn&gt;</code>，其中 <code>node_id1</code>、<code>node_id2</code>、...、<code>node_idn</code> 为停用节点的 <code>id</code>（整数），N 为停用节点的数量。程序无需输出。</li>
+<li><strong>单个/多个节点启用事件</strong>：当节点启用后，所有与该节点相连的链路将被恢复。格式为：<code>up N &lt;node_id1&gt; &lt;node_id2&gt; ... &lt;node_idn&gt;</code>，其中 <code>node_id1</code>、<code>node_id2</code>、...、<code>node_idn</code> 为启用节点的 <code>id</code>（整数），N 为启用节点的数量。程序无需输出。</li>
+<li><strong>负载波动事件（选做）</strong>：链路的时延不再是固定值，而是会在之前的值上进行增量或减量。格式为：<code>fluc N &lt;node_id1_a&gt; &lt;node_id1_b&gt; &lt;delta1&gt; &lt;node_id2_a&gt; &lt;node_id2_b&gt; &lt;delta2&gt; ...</code>，其中 <code>node_id1_a</code>、<code>node_id1_b</code> 为链路的两端节点，<code>delta1</code> 为链路时延的增量（单位：毫秒，负数为减量），N 为链路数量。负载波动后，链路的时延会进行更新（即下一次的负载波动事件会在更新后的时延上进行增量或减量）。链路时延的最小值为 1 毫秒，最大值为 1000 毫秒。程序无需输出。</li>
+<li><strong>更新最短路、输出事件</strong>：格式为：<code>update</code>。当触发 <code>update</code> 事件时，程序需计算并输出当前网络中所有节点的最短路径时延（单位：毫秒）。最短路径时延的定义请见<strong>输出格式</strong>板块。</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="输入-输出格式">输入、输出格式 </h2>
+<h4 id="输入格式">输入格式 </h4>
+<p>输入包含多个 testcase，每个testcase 内容如下：</p>
+<ol>
+<li>
+<p>第一行：<code>&lt;Network&gt;</code>，表示网络名称（如 <code>Us Signal</code>）。</p>
+</li>
+<li>
+<p>第二行：<code>&lt;start_node_id&gt;</code>，表示起始节点的 <code>id</code>（整数）。</p>
+</li>
+<li>
+<p>第三行：正整数 M（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≥</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">\ge2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719em;vertical-align:-0.136em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span></span></span></span>），表示事件的数量。</p>
+</li>
+<li>
+<p>往下的 M 行，每行表示一个事件，格式如下：</p>
+<ul>
+<li><code>down N &lt;node_id1&gt; &lt;node_id2&gt; ... &lt;node_idn&gt;</code>：表示停用节点 <code>node_id1</code>、<code>node_id2</code>、...、<code>node_idn</code>。</li>
+<li><code>up N &lt;node_id1&gt; &lt;node_id2&gt; ... &lt;node_idn&gt;</code>：表示启用节点 <code>node_id1</code>、<code>node_id2</code>、...、<code>node_idn</code>。</li>
+<li><strong>（可选）</strong><code>fluc N &lt;node_id1_a&gt; &lt;node_id1_b&gt; &lt;delta1&gt; &lt;node_id2_a&gt; &lt;node_id2_b&gt; &lt;delta2&gt; ...</code>：表示链路时延波动。</li>
+<li><code>update</code>：表示更新最短路径时延并输出。</li>
+</ul>
+<p>事件出现的先后顺序随机。第一个事件一定不是 <code>update</code> 事件，最后一个事件一定是 <code>update</code> 事件。<br>
+若已启用的节点再次启用、已停用的节点再次停用，则这些节点的状态不做任何变动；起始节点的状态保证不会做任何变动（一直为启动）。<br>
+负载波动事件中的链路时延增量（<code>delta</code>）可以为负数，表示减小时延。</p>
+</li>
+</ol>
+<h4 id="输出格式">输出格式 </h4>
+<p>在每个 testcase 内：</p>
+<ul>
+<li>接受第二行的起始节点输入后，输出一行，代表该节点到网络中所有其它节点的最短路径时延（单位：毫秒）。</li>
+<li>每接受一次 <code>update</code> 事件，输出一行，代表该节点到网络中所有其它节点的最短路径时延（单位：毫秒）。</li>
+</ul>
+<p>最短路径时延定义为：从起始节点到目标节点若存在一条最短路径，则输出该路径的时延总和（边权之和）；若路径不可达，则输出 <code>-1</code>。<br>
+输出最短路径时延的格式为：</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>&lt;delay1&gt; ... &lt;delay x-1&gt; &lt;delay x+1&gt; ... &lt;delay n&gt;\n
+</code></pre><p>其中 <code>&lt;delay i&gt;</code> 为起始节点到节点 <code>i</code> 的最短路径时延（单位：毫秒，保留2位小数），按照节点 <code>id</code> 的升序排列。其中节点 <code>x</code> 为起始节点，故延迟值 <code>&lt;delay x&gt;</code> 不输出。若某个节点不可达，则输出 <code>-1</code>。行末以换行符 <code>\n</code> 结尾。</p>
+<h4 id="示例输入-输出">示例输入、输出 </h4>
+<p>后续会继续发布参考的输入输出示例、testcase，请耐心等待。</p>
+<h2 id="注意事项">注意事项 </h2>
+<ul>
+<li>最终提交的内容为一个压缩包，内容包含：
+<ul>
+<li><code>Q1.c/Q1.cpp</code>源代码文件，<code>Q1.exe</code> 可执行文件（若选做负载波动事件，则源代码文件须命名为 <code>Q1_plus.c/Q1_plus.cpp</code>，可执行文件须命名为 <code>Q1_plus.exe</code>）</li>
+<li>Topology Zoo 数据集预处理后的缓存文件（如 <code>edgelist.txt</code>）或文件夹</li>
+<li>预处理数据集用到的所有程序源码等（如 Python 脚本）</li>
+</ul>
+</li>
+<li>单源最短路可以使用 Dijkstra 算法求解。由于事件数量可能较多，每次全局更新最短路径时延的复杂度较高，故需要对算法策略进行优化，例如采用局部更新方法，以提高算法效率。</li>
+<li>可以使用 STL 的 <code>priority_queue</code> 来实现 Dijkstra 算法。</li>
+<li>可以采用更高效的数据结构，但需自行实现，请谨慎尝试。</li>
+<li>评分时会根据结果的正确性和运行时间进行综合评测。</li>
+<li>本文档可能会根据实际情况进行小范围的错误修正等更新，请及时关注 elearning 的通知。</li>
+</ul>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
